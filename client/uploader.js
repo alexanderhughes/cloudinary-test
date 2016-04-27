@@ -14,13 +14,14 @@ Template.uploader.events({
 		e.preventDefault();
 		var fileName = e.target.fileTitle.value;
 		var files = e.target.fileSelected.files;
+    var shuffledFileName = _.shuffle(fileName).join("");
 		Cloudinary.upload(files, { resource_type: "video" }, function(err, res) {
 			if(err){
 				return console.error(err);
 			}
 			
 			res.from = e.target.fileTitle.value;
-			res.title = Math.floor(Math.random() * 10000000000); //random number.
+			res.title = shuffledFileName;
 			res.visible = true;
 			res.fileName = fileName;
 			
