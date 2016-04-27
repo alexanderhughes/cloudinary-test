@@ -1,4 +1,4 @@
-Template.uploader.events({
+Template.uploader.events({  
 	"change #fileSelected": function(e){
 		if(!e.target.files || e.target.files.length === 0){
 			$("#chooseVoicemail").text('Choose a voicemail');
@@ -9,6 +9,9 @@ Template.uploader.events({
 		fileName = (fileName.length > 16 ? fileName.slice(0,16) + '...' : fileName);
 		
 		$("#chooseVoicemail").text(fileName);
+    $("#fileTitle").click(function(){
+      $(this).attr("placeholder","__________");
+    });
 	},
 	"submit": function(e) {
 		e.preventDefault();
