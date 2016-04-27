@@ -36,6 +36,7 @@ Template.uploader.events({
     		res.posY = Math.random() / 1.4;
 
 			$('#chooseVoicemail').text("Choose a voicemail");
+      $('#fileTitle').attr("placeholder","Narrated by");
 			
 			Images.insert(res,function(err,createdId){
 				console.log('created image',err,createdId);
